@@ -74,6 +74,15 @@ let data = {
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
+  "12-b-deal": {
+     "name":"12-b-deal",
+     "is_bgm":true,
+     "cue_begin":"sau khi các shark xem rượu xong",
+     "cue_end":"cuối câu [cho đừng đập nhau]",
+     "fade_out_duration":1.5,
+     "duck_fade_duration":-1,
+     "duck_volume": 0.2
+  },
   "12-s-wow": {
      "name":"12-s-wow",
      "is_bgm":false,
@@ -133,13 +142,22 @@ let data = {
      "is_bgm":false,
      "cue_begin":"cuối câu [Công thức nấu rượu gia truyền và em]"
   },
-  "17a-s-whistle": {
-     "name":"17a-s-whistle",
+  "17a-b-deal": {
+     "name":"17a-b-deal",
+     "is_bgm":true,
+     "cue_begin":"cuối câu [cần cù bù siêng năng chứ]",
+     "cue_end":"hết nhạc",
+     "fade_out_duration":1.5,
+     "duck_fade_duration":-1,
+     "duck_volume": 0.2
+  },
+  "17b-s-whistle": {
+     "name":"17b-s-whistle",
      "is_bgm":false,
      "cue_begin":"cuối câu [có đầu tư không mà hỏi lắm thế]"
   },
-   "17b-s-shock": {
-     "name":"17b-s-shock",
+   "17c-s-shock": {
+     "name":"17c-s-shock",
      "is_bgm":false,
      "cue_begin":"cuối câu [lại bắt đầu hội chứng thích ăn đòn rồi đấy]"
   },
