@@ -56,17 +56,17 @@ let data = {
      "is_bgm":false,
      "cue_begin":"lúc giới thiệu Shark Kiều"
   },
-  "10a-b-entrance": {
-     "name":"10a-b-entrance",
+  "10b-b-entrance": {
+     "name":"10b-b-entrance",
      "is_bgm":true,
-     "cue_begin":"cuối câu [đến với start-up ngày hôm nay]",
+     "cue_begin":"lúc bắt đầu catwalk",
      "cue_end":"hết nhạc",
      "fade_out_duration":3,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
-  "10b-b-shark-tank": {
-     "name":"10b-b-shark-tank",
+  "10d-b-shark-tank": {
+     "name":"10d-b-shark-tank",
      "is_bgm":true,
      "cue_begin":"cuối câu [đồ uống có cồn]",
      "cue_end":"khi 2 PG ra khỏi sân khấu",
