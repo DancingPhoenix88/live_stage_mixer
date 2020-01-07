@@ -1,0 +1,249 @@
+/*---------------------------------------------------------------------*/
+/* COMMON */
+body {
+  background-color: #121212;
+  font-family: "Avenir Next";
+  font-weight: 400;
+  color: #eee;
+}
+
+::-webkit-scrollbar { width: 5px; left: -10px; }
+::-webkit-scrollbar-track { background-color: #121212; }
+::-webkit-scrollbar-thumb { background-color: #444; border-radius: 2px; }
+
+/*---------------------------------------------------------------------*/
+/* AUDIO PLAYER */
+#audio_sources{
+  display: none;
+}
+
+/*---------------------------------------------------------------------*/
+/* LIST */
+.panel {
+  display: block;
+  float: left;
+  width: 48%;
+}
+#bgm-panel {
+  margin: 0 2% 0 1%;
+}
+
+h2 {
+  display: block;
+  text-align: left;
+  color: white;
+  font-size: 36px;
+  padding: 10px 0 10px 20px;
+  margin: 0;
+}
+
+.track-list {
+  display: block;
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0 0 50px 20px;
+  padding: 0;
+  position: relative;
+  border-radius: 5px;
+}
+
+li {
+  list-style-type: none;
+  display: block;
+  height: 100px;
+  clear: left;
+  border-radius: 5px;
+  /*box-shadow: 0 0 10px black;*/
+  margin: 0 5px 10px 0;
+  background-color: #1d1d1d;
+}
+li:last-child { margin-bottom: 0; }
+.track-status {
+  color: #33db86;
+  display: block;
+  float: left;
+  width: 40px;
+  height: 90%;
+  margin-left: 20px;
+  position: relative;
+}
+
+/*---------------------------------------------------------------------*/
+/* TRACK CONTENT */
+.track-status.playing:after {
+  content:'𝄞';
+  font-size: 64px;
+}
+.track-status.next-candidate:after {
+  content:'✩';
+  font-size: 24px;
+  position: absolute;
+  top: 28px;
+  animation: animBlink 1s linear infinite;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.track-content {
+  border-radius: 5px;
+  height: 90px;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+.track-content:hover {
+  background-color: #444;
+}
+.track-selection:checked+.track-content {
+  background-color: #33db86;
+}
+.track-selection:checked+.track-content > span {
+  color: #121212;
+}
+
+.track-title {
+  font-weight: bold;
+  display: block;
+  float: left;
+  max-width: 300px;
+}
+
+.cue-begin, .cue-end, .fade-info, .duck-info {
+  font-size: 13px;
+  font-style: italic;
+  display: block;
+  float: left;
+  width: 80%;
+  font-weight: 300;
+  margin: 3px 0 0 10px;
+}
+.fade-info, .duck-info {
+  width: 170px;
+  color: pink;
+}
+.track-effect, .track-time {
+  font-size: 13px;
+  font-style: italic;
+  display: block;
+  color: #33db86;
+  float: right;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+/*---------------------------------------------------------------------*/
+/* SFX TRACKS */
+#sfx-list li { height: 60px; }
+#sfx-list .track-content { height: 50px; }
+#sfx-list .playing:after { margin-top: -4px; font-size: 44px; }
+#sfx-list .track-status.next-candidate:after { top: 9px;  }
+#sfx-list .cue-begin, #sfx-list .cue-end, #sfx-list .fade-info, #sfx-list .duck-info { margin-left: 0; }
+
+/*---------------------------------------------------------------------*/
+/* TRACK PROGRESS */
+progress[value] {
+  -webkit-appearance: none;
+   appearance: none;
+
+  width: 100%;
+  height: 3px;
+  display: block;
+  position: relative;
+  top: -5px;
+  visibility: hidden;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #222;
+}
+progress[value]::-webkit-progress-value {
+  background-color: #33db86;
+  border-right: 3px solid white;
+}
+.track-status.playing+progress {
+  visibility: visible;
+}
+
+/*---------------------------------------------------------------------*/
+/* SHORTCUTS */
+.shortcut-block {
+  display: block;
+  float: left;
+  height: 80px;
+  min-width: 86px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #222;
+  margin: 5px;
+  /*box-shadow: 0 0 10px #33db86;*/
+  transition: background-color 0.4s;
+  
+  user-select: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  font-family: "Avenir Next";
+  color: #aaa;
+  text-align: center;
+}
+
+.shortcut-block:hover {
+  background-color: #444;
+}
+
+.shortcut-block:active {
+  background-color: white; box-shadow: 0 0 20px white;
+}
+
+.key {
+  font-weight: 300;
+  display: block;
+  font-size: 18px;
+  margin-top: 7px;
+}
+
+.function {
+  font-weight: 100;
+  font-size: 14px;
+  font-style: italic;
+}
+
+#btn-play-next-candidate {
+  width: 99%;
+}
+
+.shortcut-block-right {
+  float: right !important;
+}
+
+.shortcuts-drawer {
+  position: fixed;
+  display: block;
+  bottom: 0px;
+  width: 92.5%;
+  left: 3.5%;
+  height: 180px;
+  border-radius: 10px 10px 0 0;
+  background-color: #63636385;
+  padding: 5px;
+  border: thin solid #666;
+  border-bottom: none;
+}
+
+/*---------------------------------------------------------------------*/
+/* ANIMATIONS */
+.blink {
+  animation: animBlink 1s linear infinite;
+}
+@keyframes animBlink {
+  50% { opacity: 0; }
+}
+.shortcut-active {
+  animation: animShortcutActive 0.1s ease-out reverse;
+}
+@keyframes animShortcutActive {
+  0% { background-color: white; box-shadow: 0 0 20px white; }
+}
