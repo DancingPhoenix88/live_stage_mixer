@@ -21,7 +21,7 @@ function setupScreen () {
   for (var i = 0; i < sources.length; ++i) {
     let track = data[sources[i].id];
     track.player          = sources[i];
-    track.duration        = Math.round(sources[i].duration);
+    track.duration        = Math.ceil(sources[i].duration);
     track.stepDuckVolume  = track.duck_fade_duration > 0 ? ((1 - track.duck_volume) * 0.1 / track.duck_fade_duration) : 1;
     track.order           = i;
 
@@ -310,20 +310,22 @@ function onTrackPause (track) {
 //------------------------------------------------------------------
 function onTrackUpdate (track) {
   track.controllers.progress.value = track.player.currentTime;
-  track.controllers.time.innerText = `${Math.round(track.player.currentTime)}/${track.duration}s`;
+  track.controllers.time.innerText = `${Math.floor(track.player.currentTime)}/${track.duration}s`;
 }
 //------------------------------------------------------------------
 function onTrackEnd (track) {
-  track.controllers.status.classList.remove('playing');
-  if (track.is_bgm && all_bgms[playing_bgm_index] == track) playing_bgm_index = -1;
+  track.controllers.status.classList.replace('playing', 'played');
   track.controllers.time.innerText = `${track.duration}s`;
+  track.controllers.progress.value = track.duration;
+
+  if (track.is_bgm && all_bgms[playing_bgm_index] == track) playing_bgm_index = -1;
 }
 //------------------------------------------------------------------
 function stepFadeOut (track) {
   let p = Math.max(0, track.player.volume - 0.1 / track.fade_out_duration);
   track.player.volume = p;
 
-  p = Math.round(100 - p * 100);
+  p = Math.floor(100 - p * 100);
   track.controllers.effect.innerText = `Fading out (${p}%)`;
 
   if (p >= 100 || isTrackPaused(track)) {
@@ -346,7 +348,7 @@ function duckInTrack (track) {
 function stepDuckInTrack (track) {
   let p = Math.max(0, track.player.volume - track.stepDuckVolume);
   track.player.volume = p;
-  track.controllers.effect.innerText = `Ducking in (${Math.round(p * 100)}%)`;
+  track.controllers.effect.innerText = `Ducking in (${Math.floor(p * 100)}%)`;
 
   if (isTrackPaused(track)) { // if audio ends before ducking-in completes -> restore
     onCompleteDuckOutTrack(track);
@@ -365,7 +367,7 @@ function duckOutTrack (track) {
 function stepDuckOutTrack (track) {
   let p = Math.min(1, track.player.volume + track.stepDuckVolume);
   track.player.volume = p;
-  track.controllers.effect.innerText = `Ducking out (${Math.round(p * 100)}%)`;
+  track.controllers.effect.innerText = `Ducking out (${Math.floor(p * 100)}%)`;
 
   if (isTrackPaused(track)) { // if audio ends before ducking-out completes -> restore
     onCompleteDuckOutTrack(track);
@@ -378,7 +380,7 @@ function stepDuckOutTrack (track) {
 //------------------------------------------------------------------
 function onCompleteDuckInTrack (track) {
   clearInterval(track.interval);
-  track.controllers.effect.innerText = `DUCKING (${Math.round(track.duck_volume * 100)}%)`;
+  track.controllers.effect.innerText = `DUCKING (${Math.floor(track.duck_volume * 100)}%)`;
   track.controllers.effect.classList.add('blink');
   track.player.volume = track.duck_volume;
   track.interval = 0;

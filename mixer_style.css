@@ -161,9 +161,17 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
   background-color: #33db86;
   border-right: 3px solid white;
+  transition: width 0.3s linear;
 }
-.track-status.playing+progress {
+.track-status.playing+progress, .track-status.played+progress {
   visibility: visible;
+}
+.track-status.played+progress {
+  height: 1px;
+  margin-bottom: 2px;
+}
+.track-status.played+progress::-webkit-progress-value {
+  border-right: none;
 }
 
 /*---------------------------------------------------------------------*/
