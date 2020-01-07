@@ -19,10 +19,15 @@ body {
 
 /*---------------------------------------------------------------------*/
 /* LIST */
+#main-content {
+  position: absolute;
+  height: calc(100% - 200px);
+}
 .panel {
   display: block;
   float: left;
   width: 48%;
+  height: 100%;
 }
 #bgm-panel {
   margin: 0 2% 0 1%;
@@ -39,10 +44,10 @@ h2 {
 
 .track-list {
   display: block;
-  height: 400px;
+  height: calc(100% - 70px);
   overflow-y: scroll;
   overflow-x: hidden;
-  margin: 0 0 50px 20px;
+  margin: 0 0 0 20px;
   padding: 0;
   position: relative;
   border-radius: 5px;
@@ -57,6 +62,7 @@ li {
   /*box-shadow: 0 0 10px black;*/
   margin: 0 5px 10px 0;
   background-color: #1d1d1d;
+  white-space: nowrap;
 }
 li:last-child { margin-bottom: 0; }
 .track-status {
@@ -116,12 +122,15 @@ input[type="radio"] {
   font-style: italic;
   display: block;
   float: left;
-  width: 80%;
   font-weight: 300;
   margin: 3px 0 0 10px;
+  overflow: hidden;
+}
+.cue-begin, .cue-end {
+  width: 78%;
+  color: #bbb;
 }
 .fade-info, .duck-info {
-  width: 170px;
   color: pink;
 }
 .track-effect, .track-time {
@@ -130,8 +139,7 @@ input[type="radio"] {
   display: block;
   color: #33db86;
   float: right;
-  margin-right: 20px;
-  margin-top: 5px;
+  margin: 5px 20px 0 0;
 }
 
 /*---------------------------------------------------------------------*/
@@ -231,8 +239,8 @@ progress[value]::-webkit-progress-value {
   position: fixed;
   display: block;
   bottom: 0px;
-  width: 92.5%;
-  left: 3.5%;
+  width: calc(98% - 50px);
+  left: calc(1% + 30px);
   height: 180px;
   border-radius: 10px 10px 0 0;
   background-color: #63636385;
