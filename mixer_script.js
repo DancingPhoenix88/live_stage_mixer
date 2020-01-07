@@ -9,21 +9,22 @@ let next_track_order = -1;
 // SCREEN
 document.body.onload = setupScreen;
 function setupScreen () {
-  let sources = document.getElementsByTagName('audio');
   let bgm_list = document.getElementById('bgm-list');
   let sfx_list = document.getElementById('sfx-list');
   let bgm_prototype_html = bgm_list.innerHTML;
   let sfx_prototype_html = sfx_list.innerHTML;
   let bgm_list_html      = [];
   let sfx_list_html      = [];
+  let order              = 0;
 
   // create HTML tags
-  for (var i = 0; i < sources.length; ++i) {
-    let track = data[sources[i].id];
-    track.player          = sources[i];
-    track.duration        = Math.round(sources[i].duration);
+  for (let track_id in data) {
+    let track = data[track_id];
+    let src   = document.getElementById(track.source);
+    track.player          = src;
+    track.duration        = Math.round(src.duration);
     track.stepDuckVolume  = track.duck_fade_duration > 0 ? ((1 - track.duck_volume) * 0.1 / track.duck_fade_duration) : 1;
-    track.order           = i;
+    track.order           = order++;
 
     let track_prototype = track.is_bgm ? bgm_prototype_html : sfx_prototype_html;
     let container = track.is_bgm ? bgm_list_html : sfx_list_html;
@@ -67,16 +68,6 @@ function setupScreen () {
       'time':     node.getElementsByClassName('track-time')[0]
     };
     all_sfxs.push(track);
-  }
-
-  // register events
-  let all_tracks = all_bgms.concat(all_sfxs);
-  for (var i = 0; i < all_tracks.length; ++i) {
-    let track = all_tracks[i];
-    track.player.onplay = onTrackPlay.bind(null, track);
-    track.player.onpause = onTrackPause.bind(null, track);
-    track.player.ontimeupdate = onTrackUpdate.bind(null, track);
-    track.player.onended = onTrackEnd.bind(null, track);
   }
 
   // default
@@ -283,10 +274,18 @@ function isTrackPaused (track) {
 //------------------------------------------------------------------
 function playTrack (track) {
   let player = track.player;
+
+  player.onplay       = onTrackPlay.bind(null, track);
+  player.onpause      = onTrackPause.bind(null, track);
+  player.ontimeupdate = onTrackUpdate.bind(null, track);
+  player.onended      = onTrackEnd.bind(null, track);
+
   player.currentTime = 0;
   player.volume = 1;
   player.play();
+
   setNextCandidate(track.order + 1);
+  
   console.log(`PLAY ${track.name}`);
 }
 //------------------------------------------------------------------
@@ -416,7 +415,7 @@ function setNextCandidate (track_order) {
 
   // Save new candidate & highlight it
   next_track_order = track_order;
-  if (isTrackPaused(track)) track.controllers.status.classList.add('next-candidate');
+  if (!track.controllers.status.classList.contains('playing')) track.controllers.status.classList.add('next-candidate');
   console.log(`setNextCandidate ${track_order} = ${track.name}`);
 }
 //------------------------------------------------------------------
