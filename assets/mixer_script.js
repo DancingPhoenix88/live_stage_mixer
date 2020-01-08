@@ -162,12 +162,16 @@ function selectBGM (track_index) {
 //------------------------------------------------------------------
 function findPrevBGM () {
   if (selected_bgm_index == -1) return 0;
-  return (selected_bgm_index + all_bgms.length - 1) % all_bgms.length;
+  // return (selected_bgm_index + all_bgms.length - 1) % all_bgms.length;
+  if (selected_bgm_index == 0) return 0;
+  else return selected_bgm_index - 1;
 }
 //------------------------------------------------------------------
 function findNextBGM () {
   if (selected_bgm_index == -1) return 0;
-  return (selected_bgm_index + 1) % all_bgms.length;
+  // return (selected_bgm_index + 1) % all_bgms.length;
+  if (selected_bgm_index == all_bgms.length - 1) return selected_bgm_index;
+  else return selected_bgm_index + 1;
 }
 //------------------------------------------------------------------
 function selectPrevBGM () {
@@ -245,12 +249,16 @@ function selectSFX (track_index) {
 //------------------------------------------------------------------
 function findPrevSFX () {
   if (selected_sfx_index == -1) return 0;
-  return (selected_sfx_index + all_sfxs.length - 1) % all_sfxs.length;
+  // return (selected_sfx_index + all_sfxs.length - 1) % all_sfxs.length;
+  if (selected_sfx_index == 0) return 0;
+  else return selected_sfx_index - 1;
 }
 //------------------------------------------------------------------
 function findNextSFX () {
   if (selected_sfx_index == -1) return 0;
-  return (selected_sfx_index + 1) % all_sfxs.length;
+  // return (selected_sfx_index + 1) % all_sfxs.length;
+  if (selected_sfx_index == all_sfxs.length - 1) return selected_sfx_index;
+  else return selected_sfx_index + 1;
 }
 //------------------------------------------------------------------
 function selectPrevSFX () {

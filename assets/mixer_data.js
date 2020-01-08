@@ -14,7 +14,7 @@ let data = {
      "is_bgm":true,
      "volume":1,
      "cue_begin":"lúc Nở kéo Chí vào bụi chuối",
-     "cue_end":"khi bụi chuối đổ (tự động)",
+     "cue_end":"&lt;bgm&gt; tiếp theo (TỰ ĐỘNG)",
      "fade_out_duration":-1,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
@@ -24,7 +24,7 @@ let data = {
      "is_bgm":true,
      "volume":1,
      "cue_begin":"lúc bụi chuối đổ",
-     "cue_end":"cuối câu [phải sờ-tút-tát thôi] (tự động)",
+     "cue_end":"&lt;bgm&gt; tiếp theo (TỰ ĐỘNG)",
      "fade_out_duration":1,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
@@ -179,18 +179,18 @@ let data = {
   //    "volume":0.7,
   //    "cue_begin":"cuối câu [Công thức nấu rượu gia truyền và em]"
   // },
-  "15d-b-silence-AND-swan": {
-     "name":"15d-b-silence-AND-swan",
+  "15d-b-swan": {
+     "name":"15d-b-swan",
      "is_bgm":true,
      "volume":1,
      "cue_begin":"câu [Cuộc sống giống như 1 bản tango]",
-     "cue_end":"cuối câu [Công thức nấu rượu gia truyền và em] (tự động)",
+     "cue_end":"&lt;bgm&gt; tiếp theo (TỰ ĐỘNG)",
      "fade_out_duration":-1,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
-  "17a-b-deal": {
-     "name":"17a-b-deal",
+  "17a-b-silence-AND-deal": {
+     "name":"17a-b-silence-AND-deal",
      "is_bgm":true,
      "volume":1,
      "cue_begin":"cuối câu [Công thức nấu rượu gia truyền và em]",
