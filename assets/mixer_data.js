@@ -8,10 +8,14 @@ let data = {
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
-  "5-s-clothes": {
-     "name":"5-s-clothes",
-     "is_bgm":false,
-     "cue_begin":"lúc Nở kéo Chí vào bụi chuối"
+  "4-b-romance": {
+     "name":"4-b-romance",
+     "is_bgm":true,
+     "cue_begin":"lúc Nở kéo Chí vào bụi chuối",
+     "cue_end":"cuối câu [phải sờ-tút-tát thôi] (tự động)",
+     "fade_out_duration":1,
+     "duck_fade_duration":-1,
+     "duck_volume": 0.2
   },
   "6-s-tree-falls": {
      "name":"6-s-tree-falls",
