@@ -20,9 +20,14 @@ function setupScreen () {
   // create HTML tags
   for (var i = 0; i < sources.length; ++i) {
     let track = data[sources[i].id];
+    if (track == null) {
+      console.error(`${sources[i].id} data not found`);
+      continue;
+    }
+
     track.player          = sources[i];
     track.duration        = Math.ceil(sources[i].duration);
-    track.stepDuckVolume  = track.duck_fade_duration > 0 ? ((1 - track.duck_volume) * 0.1 / track.duck_fade_duration) : 1;
+    track.stepDuckVolume  = track.duck_fade_duration > 0 ? ((track.volume - track.duck_volume) * 0.1 / track.duck_fade_duration) : 1;
     track.order           = i;
 
     let track_prototype = track.is_bgm ? bgm_prototype_html : sfx_prototype_html;
@@ -222,10 +227,10 @@ function toggleDuckBGM (track_index) {
   if (!isNaN(track.interval) && track.interval > 0) return;
   
   if (track.duck_fade_duration <= 0) {
-    if (track.player.volume == 1) onCompleteDuckOutTrack(track);
+    if (track.player.volume == track.volume) onCompleteDuckOutTrack(track);
     else onCompleteDuckInTrack(track);
   } else {
-    if (track.player.volume == 1) duckInTrack(track);
+    if (track.player.volume == track.volume) duckInTrack(track);
     else duckOutTrack(track);
   }
 }
@@ -284,7 +289,7 @@ function isTrackPaused (track) {
 function playTrack (track) {
   let player = track.player;
   player.currentTime = 0;
-  player.volume = 1;
+  player.volume = track.volume;
   player.play();
   setNextCandidate(track.order + 1);
   console.log(`PLAY ${track.name}`);
@@ -365,7 +370,7 @@ function duckOutTrack (track) {
 }
 //------------------------------------------------------------------
 function stepDuckOutTrack (track) {
-  let p = Math.min(1, track.player.volume + track.stepDuckVolume);
+  let p = Math.min(track.volume, track.player.volume + track.stepDuckVolume);
   track.player.volume = p;
   track.controllers.effect.innerText = `Ducking out (${Math.floor(p * 100)}%)`;
 
@@ -390,7 +395,7 @@ function onCompleteDuckOutTrack (track) {
   clearInterval(track.interval);
   track.controllers.effect.innerText = '';
   track.controllers.effect.classList.remove('blink');
-  track.player.volume = 1;
+  track.player.volume = track.volume;
   track.interval = 0;
 }
 //------------------------------------------------------------------
