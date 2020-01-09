@@ -35,7 +35,7 @@ let data = {
      "volume":1,
      "cue_begin":"cuối câu [phải sờ-tút-tát thôi]",
      "cue_end":"khi chạy SFX &lt;post-scene-setup&gt;",
-     "fade_out_duration":3,
+     "fade_out_duration":6,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
@@ -96,7 +96,7 @@ let data = {
   "12-b-deal": {
      "name":"12-b-deal",
      "is_bgm":true,
-     "volume":1,
+     "volume":0.7,
      "cue_begin":"sau khi các shark xem rượu xong",
      "cue_end":"cuối câu [cho đừng đập nhau]",
      "fade_out_duration":1.5,
@@ -182,7 +182,7 @@ let data = {
   "15d-b-swan": {
      "name":"15d-b-swan",
      "is_bgm":true,
-     "volume":1,
+     "volume":0.8,
      "cue_begin":"câu [Cuộc sống giống như 1 bản tango]",
      "cue_end":"&lt;bgm&gt; tiếp theo (TỰ ĐỘNG)",
      "fade_out_duration":-1,
@@ -238,7 +238,7 @@ let data = {
   "19a-b-sad": {
      "name":"19a-b-sad",
      "is_bgm":true,
-     "volume":1,
+     "volume":0.8,
      "cue_begin":"cuối câu [Tôi quyết định không đầu tư]",
      "cue_end":"hết nhạc",
      "fade_out_duration":3,
@@ -258,13 +258,13 @@ let data = {
   "19f-s-breaking-glass": {
      "name":"19f-s-breaking-glass",
      "is_bgm":false,
-     "volume":0.7,
+     "volume":1,
      "cue_begin":"cuối câu [Để bố mày make up lại cho lũ chúng mày]"
   },
   "20-s-body-falls": {
      "name":"20-s-body-falls",
      "is_bgm":false,
-     "volume":0.7,
+     "volume":1,
      "cue_begin":"lúc Nở ngã"
   },
   "22a-b-explain": {
@@ -300,10 +300,10 @@ let data = {
   "24-b-wake-up": {
      "name":"24-b-wake-up",
      "is_bgm":true,
-     "volume":1,
-     "cue_begin":"cuối câu [Anh thất bại rồi]",
+     "volume":0.7,
+     "cue_begin":"cuối câu [Em không sao, I'm fine]",
      "cue_end":"cuối câu [Cụ Hạc chắc sẽ bật đèn xanh ngay]",
-     "fade_out_duration":3,
+     "fade_out_duration":1,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },

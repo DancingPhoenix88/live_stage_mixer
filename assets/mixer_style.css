@@ -2,7 +2,7 @@
 /* COMMON */
 body {
   background-color: #121212;
-  font-family: "Avenir Next";
+  font-family: "Avenir Next", "Tahoma";
   font-weight: 400;
   color: #eee;
 }
@@ -30,7 +30,7 @@ body {
   height: 100%;
 }
 #bgm-panel {
-  margin: 0 2% 0 1%;
+  margin: 0 1%;
 }
 
 h2 {
@@ -201,7 +201,7 @@ progress[value]::-webkit-progress-value {
   border: none;
   cursor: pointer;
 
-  font-family: "Avenir Next";
+  font-family: "Avenir Next", "Tahoma";
   color: #aaa;
   text-align: center;
 }
