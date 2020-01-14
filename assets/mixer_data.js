@@ -2,18 +2,12 @@ let data = {
   "3-b-intro": {
      "name":"3-b-intro",
      "is_bgm":true,
-     "volume":0.55,
+     "volume":1,
      "cue_begin":"đầu",
      "cue_end":"hết nhạc",
      "fade_out_duration":2,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
-  },
-  "3b-s-introduce": {
-     "name":"3b-s-introduce",
-     "is_bgm":false,
-     "volume":1,
-     "cue_begin":"lúc DẪN TRUYỆN (sẽ thu âm đè vào `3-b-intro`)"
   },
   "4-b-romance": {
      "name":"4-b-romance",
@@ -34,12 +28,6 @@ let data = {
      "fade_out_duration":1,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
-  },
-  "6b-s-drop-banana-tree": {
-     "name":"6b-s-drop-banana-tree",
-     "is_bgm":false,
-     "volume":1,
-     "cue_begin":"sau tiếng bụi chuối đổ (sẽ thu âm đè vào BGM)"
   },
   "7-b-enlighten": {
      "name":"7-b-enlighten",
