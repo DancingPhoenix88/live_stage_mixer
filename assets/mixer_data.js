@@ -51,7 +51,7 @@ let data = {
      "volume":0.6,
      "cue_begin":"lúc bắt đầu câu [Shark Tank]",
      "cue_end":"khi giới thiệu xong cả 3 shark",
-     "fade_out_duration":3,
+     "fade_out_duration":6,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
@@ -88,15 +88,15 @@ let data = {
      "is_bgm":true,
      "volume":0.7,
      "cue_begin":"cuối câu [đồ uống có cồn]",
-     "cue_end":"khi 2 PG ra khỏi sân khấu",
-     "fade_out_duration":3,
+     "cue_end":"&lt;bgm&gt; tiếp theo (TỰ ĐỘNG)",
+     "fade_out_duration":6,
      "duck_fade_duration":-1,
      "duck_volume": 0.2
   },
   "12-b-deal": {
      "name":"12-b-deal",
      "is_bgm":true,
-     "volume":0.4,
+     "volume":0.5,
      "cue_begin":"sau khi các shark xem rượu xong",
      "cue_end":"cuối câu [cho đừng đập nhau]",
      "fade_out_duration":1.5,
@@ -248,12 +248,12 @@ let data = {
   "19e-b-fight": {
      "name":"19e-b-fight",
      "is_bgm":true,
-     "volume":0.7,
-     "cue_begin":"cuối câu [kẻ thì bán con, đứa thì bán mình]",
+     "volume":0.55,
+     "cue_begin":"cuối câu [đứa thì bán mình], --->DUCK khi cụ Hạc nói",
      "cue_end":"hết nhạc",
      "fade_out_duration":3,
-     "duck_fade_duration":-1,
-     "duck_volume": 0.2
+     "duck_fade_duration":1,
+     "duck_volume": 0.25
   },
   "19f-s-breaking-glass": {
      "name":"19f-s-breaking-glass",
@@ -290,7 +290,7 @@ let data = {
   "23-b-think": {
      "name":"23-b-think",
      "is_bgm":true,
-     "volume":0.7,
+     "volume":0.6,
      "cue_begin":"lúc chị Dậu bắt đầu giảng giải",
      "cue_end":"cuối câu [không đầu hàng trước nghịch cảnh]",
      "fade_out_duration":5,

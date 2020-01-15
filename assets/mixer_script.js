@@ -386,7 +386,7 @@ function stepDuckOutTrack (track) {
     onCompleteDuckOutTrack(track);
     return;
   }
-  if (p >= 1) {
+  if (p >= track.volume) {
     onCompleteDuckOutTrack(track);
   }
 }
